@@ -1,6 +1,6 @@
 # OnionCrafter.Features
 
-[![NuGet](https://img.shields.io/nuget/v/OnionCrafter.Base.svg)](https://www.nuget.org/packages/OnionCrafter.Base/)
+[![NuGet](https://img.shields.io/nuget/v/OnionCrafter.Feature.svg)](https://www.nuget.org/packages/OnionCrafter.Feature/)
 
 ![](https://github.com/Dtopiast/OnionCrafter.Feature/blob/main/Images/Logo.png)
 
