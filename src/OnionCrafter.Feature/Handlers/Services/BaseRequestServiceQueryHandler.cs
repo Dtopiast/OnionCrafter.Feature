@@ -20,7 +20,7 @@ namespace OnionCrafter.Feature.Handlers.Services
     /// <typeparam name="TService">The type of the service.</typeparam>
     public abstract class BaseRequestServiceQueryHandler<TSchemaKey, TRequestSchema, TRequestDTO, TResponseSchema, TReturnDTO, TService> :
         BaseRequestServiceHandler<TSchemaKey, TRequestSchema, TRequestDTO, TResponseSchema, TReturnDTO, TService>,
-        IBaseRequestServiceQueryHandler<TSchemaKey, TRequestSchema, TRequestDTO, TResponseSchema, TReturnDTO, TService>
+        IRequestServiceQueryHandler<TSchemaKey, TRequestSchema, TRequestDTO, TResponseSchema, TReturnDTO, TService>
         where TSchemaKey : notnull, IEquatable<TSchemaKey>, IComparable<TSchemaKey>
         where TResponseSchema : IResponseSchema<TSchemaKey, TReturnDTO>
         where TRequestSchema : IRequestSchema<TSchemaKey, TResponseSchema, TReturnDTO, TRequestDTO>

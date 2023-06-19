@@ -16,7 +16,8 @@ namespace OnionCrafter.Feature.Handlers
     /// <typeparam name="TResponseSchema">The type of the response schema.</typeparam>
     /// <typeparam name="TReturnDTO">The type of the return DTO.</typeparam>
     public abstract class BaseRequestHandler<TSchemaKey, TRequestSchema, TRequestDTO, TResponseSchema, TReturnDTO> :
-        IBaseRequestHandler<TSchemaKey, TRequestSchema, TRequestDTO, TResponseSchema, TReturnDTO>
+        IBaseRequestHandler,
+        IRequestHandler<TSchemaKey, TRequestSchema, TRequestDTO, TResponseSchema, TReturnDTO>
         where TSchemaKey : notnull, IEquatable<TSchemaKey>, IComparable<TSchemaKey>
         where TResponseSchema : IResponseSchema<TSchemaKey, TReturnDTO>
         where TRequestSchema : IRequestSchema<TSchemaKey, TResponseSchema, TReturnDTO, TRequestDTO>
@@ -61,7 +62,7 @@ namespace OnionCrafter.Feature.Handlers
             {
                 _responseSchema.SetFeatureCall(request.GetRequestFeature());
                 _responseSchema.SetMessage(_resultMessage);
-            });
+            }, cancellationToken);
             return _responseSchema;
         }
     }

@@ -15,7 +15,7 @@ namespace OnionCrafter.Feature.Handlers
     /// <typeparam name="TReturnDTO">The type of the return DTO.</typeparam>
     public abstract class BaseRequestQueryHandler<TSchemaKey, TRequestSchema, TRequestDTO, TResponseSchema, TReturnDTO> :
         BaseRequestHandler<TSchemaKey, TRequestSchema, TRequestDTO, TResponseSchema, TReturnDTO>,
-        IBaseRequestQueryHandler<TSchemaKey, TRequestSchema, TRequestDTO, TResponseSchema, TReturnDTO>
+        IRequestQueryHandler<TSchemaKey, TRequestSchema, TRequestDTO, TResponseSchema, TReturnDTO>
         where TSchemaKey : notnull, IEquatable<TSchemaKey>, IComparable<TSchemaKey>
         where TResponseSchema : IResponseSchema<TSchemaKey, TReturnDTO>
         where TRequestSchema : IRequestSchema<TSchemaKey, TResponseSchema, TReturnDTO, TRequestDTO>
