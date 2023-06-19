@@ -16,7 +16,9 @@ namespace OnionCrafter.Feature.Behavoirs
     /// <typeparam name="TResponse">The type of the response.</typeparam>
     /// <typeparam name="TResponseData">The type of the response data.</typeparam>
     /// <typeparam name="TRequestData">The type of the request data.</typeparam>
-    public interface IFeaturePipelineBehavoir<TRequest, TResponse, TResponseData, TRequestData> : IPipelineBehavior<TRequest, TResponse>
+    public interface IFeaturePipelineBehavoir<TRequest, TResponse, TResponseData, TRequestData> :
+        IPipelineBehavior<TRequest, TResponse>,
+        IBaseFeaturePipelineBehavoir
         where TRequest : IRequestSchema<string, TResponse, TResponseData, TRequestData>
         where TResponse : IResponseSchema<string, TResponseData>
         where TResponseData : class, IResponseData

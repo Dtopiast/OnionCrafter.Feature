@@ -4,6 +4,8 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <PackageIcon>JustLogo.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,6 +17,13 @@
 
   <ItemGroup>
     <Folder Include="Exception\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\Images\JustLogo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
