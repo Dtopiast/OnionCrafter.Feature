@@ -1,8 +1,9 @@
 ﻿using OnionCrafter.Base.DTOs;
 using OnionCrafter.Base.Wrappers.Requests;
+using OnionCrafter.Base.Wrappers.Requests.Query;
 using OnionCrafter.Base.Wrappers.Responses;
 
-namespace OnionCrafter.Feature.Handlers
+namespace OnionCrafter.Feature.Handlers.General.Query
 {
     /// <summary>
     /// Represents a base interface for query request handlers.
@@ -15,7 +16,7 @@ namespace OnionCrafter.Feature.Handlers
     public interface IRequestQueryHandler<TSchemaKey, TRequestSchema, TRequestDTO, TResponseSchema, TReturnDTO> :
         IRequestHandler<TSchemaKey, TRequestSchema, TRequestDTO, TResponseSchema, TReturnDTO>
         where TSchemaKey : notnull, IEquatable<TSchemaKey>, IComparable<TSchemaKey>
-        where TRequestSchema : IRequestSchema<TSchemaKey, TResponseSchema, TReturnDTO, TRequestDTO>
+        where TRequestSchema : IQueryRequestSchema<TSchemaKey, TResponseSchema, TReturnDTO, TRequestDTO>
         where TRequestDTO : class, IBaseDTO, IRequestData
         where TResponseSchema : IResponseSchema<TSchemaKey, TReturnDTO>
         where TReturnDTO : class, IBaseDTO, IResponseData

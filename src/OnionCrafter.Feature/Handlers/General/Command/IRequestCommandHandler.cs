@@ -1,8 +1,9 @@
 ﻿using OnionCrafter.Base.DTOs;
 using OnionCrafter.Base.Wrappers.Requests;
+using OnionCrafter.Base.Wrappers.Requests.Command;
 using OnionCrafter.Base.Wrappers.Responses;
 
-namespace OnionCrafter.Feature.Handlers
+namespace OnionCrafter.Feature.Handlers.General.Command
 {
     /// <summary>
     /// Represents a base interface for command handlers.
@@ -15,7 +16,7 @@ namespace OnionCrafter.Feature.Handlers
     public interface IRequestCommandHandler<TSchemaKey, TRequestSchema, TRequestDTO, TResponseSchema, TReturnDTO> :
         IRequestHandler<TSchemaKey, TRequestSchema, TRequestDTO, TResponseSchema, TReturnDTO>
         where TSchemaKey : notnull, IEquatable<TSchemaKey>, IComparable<TSchemaKey>
-        where TRequestSchema : IRequestSchema<TSchemaKey, TResponseSchema, TReturnDTO, TRequestDTO>
+        where TRequestSchema : ICommandRequestSchema<TSchemaKey, TResponseSchema, TReturnDTO, TRequestDTO>
         where TRequestDTO : class, IBaseDTO, IRequestData
         where TResponseSchema : IResponseSchema<TSchemaKey, TReturnDTO>
         where TReturnDTO : class, IBaseDTO, IResponseData
