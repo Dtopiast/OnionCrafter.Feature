@@ -1,13 +1,11 @@
 ﻿using AutoMapper;
-using Microsoft.VisualBasic;
 using OnionCrafter.Base.DTOs;
 using OnionCrafter.Base.Wrappers.Requests;
 using OnionCrafter.Base.Wrappers.Responses;
+using OnionCrafter.Service.Options.Services;
 using OnionCrafter.Service.Services;
-using OnionCrafter.Service.Services.Options;
-using System.Xml.Linq;
 
-namespace OnionCrafter.Feature.Handlers.Services
+namespace OnionCrafter.Feature.Handlers.Services.Query
 {
     /// <summary>
     /// Represents a base class for service query handlers.
@@ -54,12 +52,10 @@ namespace OnionCrafter.Feature.Handlers.Services
         where TSchemaKey : notnull, IEquatable<TSchemaKey>, IComparable<TSchemaKey>
         where TResponseSchema : IResponseSchema<TSchemaKey, TReturnDTO>
         where TRequestSchema : IRequestSchema<TSchemaKey, TResponseSchema, TReturnDTO, TRequestDTO>
-        where TReturnDTO : class,
-
-     IBaseDTO, IResponseData
+        where TReturnDTO : class, IBaseDTO, IResponseData
         where TRequestDTO : class, IBaseDTO, IRequestData
         where TService : IBaseService
-        where TServiceOptions : class, IServiceOptions
+        where TServiceOptions : class, IBaseServiceOptions
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseRequestServiceQueryHandler{TSchemaKey, TRequestSchema, TRequestDTO, TResponseSchema, TReturnDTO, TService, TServiceOptions}"/> class.

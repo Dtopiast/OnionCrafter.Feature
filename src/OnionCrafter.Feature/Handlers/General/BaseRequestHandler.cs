@@ -1,11 +1,9 @@
 ﻿using AutoMapper;
-using MediatR;
 using OnionCrafter.Base.DTOs;
-using OnionCrafter.Base.Entities;
 using OnionCrafter.Base.Wrappers.Requests;
 using OnionCrafter.Base.Wrappers.Responses;
 
-namespace OnionCrafter.Feature.Handlers
+namespace OnionCrafter.Feature.Handlers.General
 {
     /// <summary>
     /// Provides a base implementation for request handlers.

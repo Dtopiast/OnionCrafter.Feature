@@ -45,22 +45,6 @@ Puedes descargar el paquete desde la sección de [releases](https://github.com/t
 
 Para utilizar OnionCrafter.Features en tu proyecto, agrega la referencia al paquete y comienza a heredar de las clases base proporcionadas. Utiliza MediatR para gestionar la comunicación entre los distintos componentes de tu aplicación.
 
-```csharp
-// Ejemplo de uso de OnionCrafter.Features
-using OnionCrafter.Features.Handlers;
-using OnionCrafter.Features.PipelineBehaviors;
-
-public class MyFeatureHandler : BaseHandler<MyFeatureRequest, MyFeatureResponse>
-{
-    // Implementación del controlador de una característica (feature) utilizando OnionCrafter.Features
-}
-
-public class MyPipelineBehavior : BasePipelineBehavior<MyFeatureRequest, MyFeatureResponse>
-{
-    // Implementación de un comportamiento de pipeline utilizando OnionCrafter.Features
-}
-```
-
 ## Contribuciones
 
 Si deseas contribuir con el proyecto, por favor lee nuestras [directrices de contribución](CONTRIBUTING.md) para obtener más información.

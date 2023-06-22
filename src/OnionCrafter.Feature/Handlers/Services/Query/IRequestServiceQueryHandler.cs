@@ -1,10 +1,10 @@
 ﻿using OnionCrafter.Base.DTOs;
 using OnionCrafter.Base.Wrappers.Requests;
 using OnionCrafter.Base.Wrappers.Responses;
-using OnionCrafter.Service.Services.Options;
+using OnionCrafter.Service.Options.Services;
 using OnionCrafter.Service.Services;
 
-namespace OnionCrafter.Feature.Handlers.Services
+namespace OnionCrafter.Feature.Handlers.Services.Query
 {
     /// <summary>
     /// Represents a base interface for request service query handlers.
@@ -44,7 +44,7 @@ namespace OnionCrafter.Feature.Handlers.Services
         where TResponseSchema : IResponseSchema<TSchemaKey, TReturnDTO>
         where TReturnDTO : class, IBaseDTO, IResponseData
         where TService : IBaseService
-        where TServiceOptions : class, IServiceOptions
+        where TServiceOptions : class, IBaseServiceOptions
     {
     }
 }

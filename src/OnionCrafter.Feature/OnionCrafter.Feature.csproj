@@ -1,25 +1,51 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <Authors>Dtopiast</Authors>
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <PackageIcon>JustLogo.png</PackageIcon>
-  </PropertyGroup>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <IncludeSymbols>True</IncludeSymbols>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>OnionCrafter.Feature</Title>
+    <Description>Provides a set of minimal base classes to enable fast and secure implementation of handlers, pipeline behavoirs and other necessary components within an onion architecture, uses Mediatr to implement the Mediator pattern. </Description>
+    <Copyright>Copyright 2023 Dtopiast</Copyright>
+    <RepositoryUrl>https://github.com/Dtopiast/OnionCrafter.Feature</RepositoryUrl>
+    <PackageTags>dependency-injection configuration services service-container logging-extension ddd</PackageTags>
+     <Version>$(VersionPrefix)</Version>
+	  <AssemblyVersion>$(VersionPrefix)</AssemblyVersion>
+	  <FileVersion>$(VersionPrefix)</FileVersion>
+	  <SignAssembly>False</SignAssembly>
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
+	</PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="FluentValidation" Version="11.5.2" />
-    <PackageReference Include="OnionCrafter.Base" Version="1.0.2" />
-    <PackageReference Include="OnionCrafter.Service" Version="1.0.0" />
+    <PackageReference Include="OnionCrafter.Base" Version="1.0.4" />
+    <PackageReference Include="OnionCrafter.Service" Version="1.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Exception\" />
+    <Folder Include="Exceptions\" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\..\..\OnionCrafter.Service\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\..\OnionCrafter.Service\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Include="..\..\Images\JustLogo.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
