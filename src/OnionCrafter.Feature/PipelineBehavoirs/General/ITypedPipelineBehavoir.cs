@@ -12,6 +12,8 @@ namespace OnionCrafter.Feature.PipelineBehavoirs.General
     /// <typeparam name="TResponse">The type of the response.</typeparam>
     /// <typeparam name="TResponseData">The type of the response data.</typeparam>
     /// <typeparam name="TRequestData">The type of the request data.</typeparam>
+    /// <typeparam name="TGlobalOptions">The type of the global options.</typeparam>
+
     public interface ITypedPipelineBehavoir<TRequest, TResponse, TResponseData, TRequestData, TGlobalOptions> :
         IBaseTypedPipelineBehavoir<TRequest, TResponse>
         where TRequest : IBaseRequestSchema
@@ -22,6 +24,16 @@ namespace OnionCrafter.Feature.PipelineBehavoirs.General
 
     {
     }
+
+    /// <summary>
+    /// Represents a typed pipeline behavior with additional base pipeline behavior options.
+    /// </summary>
+    /// <typeparam name="TRequest">The type of the request.</typeparam>
+    /// <typeparam name="TResponse">The type of the response.</typeparam>
+    /// <typeparam name="TResponseData">The type of the response data.</typeparam>
+    /// <typeparam name="TRequestData">The type of the request data.</typeparam>
+    /// <typeparam name="TGlobalOptions">The type of the global options.</typeparam>
+    /// <typeparam name="TBasePipelineBehavoirOptions">The type of the base pipeline behavior options.</typeparam>
 
     public interface ITypedPipelineBehavoir<TRequest, TResponse, TResponseData, TRequestData, TGlobalOptions, TBasePipelineBehavoirOptions> :
         ITypedPipelineBehavoir<TRequest, TResponse, TResponseData, TRequestData, TGlobalOptions>,

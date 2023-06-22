@@ -12,6 +12,7 @@ namespace OnionCrafter.Feature.PipelineBehavoirs.Cache
     /// <typeparam name="TRequest">The type of the request.</typeparam>
     /// <typeparam name="TResponse">The type of the response.</typeparam>
     /// <typeparam name="TResponseData">The type of the response data.</typeparam>
+    /// <typeparam name="TGlobalOptions">The type of the global options.</typeparam>
     /// <typeparam name="TRequestData">The type of the request data.</typeparam>
     public interface ICachePipelineBehavior<TRequest, TResponse, TResponseData, TRequestData, TGlobalOptions> :
         ITypedPipelineBehavoir<TRequest, TResponse, TResponseData, TRequestData, TGlobalOptions>
@@ -23,6 +24,16 @@ namespace OnionCrafter.Feature.PipelineBehavoirs.Cache
     {
     }
 
+    ///<summary>
+    /// Represents a cache pipeline behavior with additional cache pipeline behavior options.
+    /// </summary>
+    /// <typeparam name="TRequest">The type of the request.</typeparam>
+    /// <typeparam name="TResponse">The type of the response.</typeparam>
+    /// <typeparam name="TResponseData">The type of the response data.</typeparam>
+    /// <typeparam name="TRequestData">The type of the request data.</typeparam>
+    /// <typeparam name="TGlobalOptions">The type of the global options.</typeparam>
+    /// <typeparam name="TCachePipelineBehavoir">The type of the cache pipeline behavior options.</typeparam>
+
     public interface ICachePipelineBehavior<TRequest, TResponse, TResponseData, TRequestData, TGlobalOptions, TCachePipelineBehavoir> :
         ICachePipelineBehavior<TRequest, TResponse, TResponseData, TRequestData, TGlobalOptions>,
         ITypedPipelineBehavoir<TRequest, TResponse, TResponseData, TRequestData, TGlobalOptions, TCachePipelineBehavoir>
@@ -31,7 +42,7 @@ namespace OnionCrafter.Feature.PipelineBehavoirs.Cache
         where TResponseData : class, IResponseData
         where TRequestData : class, IRequestData
         where TGlobalOptions : class, IGlobalOptions
-        where TCachePipelineBehavoir : class, ICachePipelineBehavoirOptions
+        where TCachePipelineBehavoir : class, ICachePipelineBehaviorOptions
     {
     }
 }

@@ -3,7 +3,9 @@ using MediatR;
 using Microsoft.Extensions.Logging;
 using OnionCrafter.Base.Wrappers.Requests;
 using OnionCrafter.Base.Wrappers.Responses;
+using OnionCrafter.Feature.PipelineBehaviors.General;
 using OnionCrafter.Feature.PipelineBehavoirs.General;
+using OnionCrafter.Feature.PipelineBehavoirs.Validation.OnionCrafter.Feature.PipelineBehaviors.Validation;
 using OnionCrafter.Feature.PipelineBehavoirs.Validation.Options;
 using OnionCrafter.Service.Options.Globals;
 using OnionCrafter.Service.OptionsProviders;
@@ -18,8 +20,9 @@ namespace OnionCrafter.Feature.PipelineBehavoirs.Validation
     /// <typeparam name="TResponse">The type of the response.</typeparam>
     /// <typeparam name="TResponseData">The type of the response data.</typeparam>
     /// <typeparam name="TRequestData">The type of the request data.</typeparam>
+    /// <typeparam name="TGlobalOptions">The type of the global options.</typeparam>
     public class ValidationPipelineBehavior<TRequest, TResponse, TResponseData, TRequestData, TGlobalOptions> :
-        BaseTypedPipelineBehavoir<TRequest, TResponse, TResponseData, TRequestData, TGlobalOptions>,
+        BaseTypedPipelineBehavior<TRequest, TResponse, TResponseData, TRequestData, TGlobalOptions>,
         IValidationPipelineBehavior<TRequest, TResponse, TResponseData, TRequestData, TGlobalOptions>
 
         where TRequest : IRequestSchema<string, TResponse, TResponseData, TRequestData>
@@ -32,6 +35,13 @@ namespace OnionCrafter.Feature.PipelineBehavoirs.Validation
         /// Field with the validators.
         /// </summary>
         private readonly IEnumerable<IValidator<TRequest>> _validators;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ValidationPipelineBehavior{TRequest, TResponse, TResponseData, TRequestData, TGlobalOptions}"/> class.
+        /// </summary>
+        /// <param name="optionsProvider">The options provider.</param>
+        /// <param name="logger">The logger.</param>
+        /// <param name="validators">The collection of validators.</param>
 
         public ValidationPipelineBehavior(IOptionsProvider<TGlobalOptions> optionsProvider, ILogger<BaseService<TGlobalOptions>>? logger, IEnumerable<IValidator<TRequest>> validators) : base(optionsProvider, logger)
         {
@@ -67,8 +77,18 @@ namespace OnionCrafter.Feature.PipelineBehavoirs.Validation
         }
     }
 
+    /// <summary>
+    /// Represents a validation pipeline behavior.
+    /// </summary>
+    /// <typeparam name="TRequest">The type of the request.</typeparam>
+    /// <typeparam name="TResponse">The type of the response.</typeparam>
+    /// <typeparam name="TResponseData">The type of the response data.</typeparam>
+    /// <typeparam name="TRequestData">The type of the request data.</typeparam>
+    /// <typeparam name="TGlobalOptions">The type of the global options.</typeparam>
+    /// <typeparam name="TValidationPipelineBehaviorOptions">The type of the validation pipeline behavior options.</typeparam>
+
     public class ValidationPipelineBehavior<TRequest, TResponse, TResponseData, TRequestData, TGlobalOptions, TValidationPipelineBehaviorOptions> :
-        BaseTypedPipelineBehavoir<TRequest, TResponse, TResponseData, TRequestData, TGlobalOptions>,
+        BaseTypedPipelineBehavior<TRequest, TResponse, TResponseData, TRequestData, TGlobalOptions>,
         IValidationPipelineBehavior<TRequest, TResponse, TResponseData, TRequestData, TGlobalOptions, TValidationPipelineBehaviorOptions>
 
         where TRequest : IRequestSchema<string, TResponse, TResponseData, TRequestData>
@@ -82,6 +102,13 @@ namespace OnionCrafter.Feature.PipelineBehavoirs.Validation
         /// Field with the validators.
         /// </summary>
         private readonly IEnumerable<IValidator<TRequest>> _validators;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ValidationPipelineBehavior{TRequest, TResponse, TResponseData, TRequestData, TGlobalOptions, TValidationPipelineBehaviorOptions}"/> class.
+        /// </summary>
+        /// <param name="optionsProvider">The options provider.</param>
+        /// <param name="logger">The logger.</param>
+        /// <param name="validators">The validators.</param>
 
         public ValidationPipelineBehavior(IOptionsProvider<TGlobalOptions> optionsProvider, ILogger<BaseService<TGlobalOptions>>? logger, IEnumerable<IValidator<TRequest>> validators) : base(optionsProvider, logger)
         {
